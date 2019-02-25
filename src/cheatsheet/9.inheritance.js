@@ -6,6 +6,14 @@ class Person {
     walk() {
         console.log(`${this.name} is walking`);
     }
+
+    eat(){
+        console.log("Person eats")
+    }
+
+    static teach(){
+        console.log('Person teaches')
+    }
 }
 
 class Teacher extends Person {
@@ -13,9 +21,23 @@ class Teacher extends Person {
         super(name);
         this.degree = degree;
     }
-    teach() {
-        console.log('teaching');
+
+    eat(){
+        console.log("Teacher eats")
+    }
+
+    parentEat(){
+        super.eat();
+    }
+
+
+    static teach() {
+        console.log('Teacher teaches');
+        //super.teach();
     }
 }
 
 const teacher = new Teacher('Cristian', 'MSc');
+teacher.eat();
+teacher.parentEat();
+Teacher.teach();
